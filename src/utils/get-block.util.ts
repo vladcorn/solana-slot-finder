@@ -10,8 +10,8 @@ const connection = new Connection("https://solana-mainnet.gateway.tatum.io", {
 export async function getBlockTime(slot: number): Promise<number | null> {
     try {
         return await connection.getBlockTime(slot);
-    } catch (e: unknown) {
-        if ((e as Error).message === `Slot ${slot} was skipped, or missing in long-term storage`) {
+    } catch (e: any) {
+        if (e.code === -32009) {
             console.log(`Slot ${slot} was skipped, or missing in long-term storage. Trying to get block time for slot ${slot - 5}`);
             return await connection.getBlockTime(slot - 5);
         }
