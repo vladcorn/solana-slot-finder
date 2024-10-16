@@ -34,7 +34,7 @@ jobs:
 
       - name: Build project
         env:
-          SOLANA_RPC_TOKEN: ${{ secrets.SOLANA_RPC_TOKEN }}
+          VITE_SOLANA_RPC_TOKEN: ${{ secrets.VITE_SOLANA_RPC_TOKEN }}
         run: pnpm run build
 
       - name: Deploy to GitHub Pages
