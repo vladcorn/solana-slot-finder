@@ -10,5 +10,5 @@ export default defineConfig({
             $lib: path.resolve("./src/lib"),
         },
     },
-    base: '/solana-block-time',
+    base: "/solana-block-time",
 })
