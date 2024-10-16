@@ -12,7 +12,7 @@ export async function getBlockTime(slot: number): Promise<number | null> {
         return await connection.getBlockTime(slot);
     } catch (e: any) {
         if (e.code === -32009) {
-            console.log(`Slot ${slot} was skipped, or missing in long-term storage. Trying to get block time for slot ${slot - 5}`);
+            console.info(`Slot ${slot} was skipped, or missing in long-term storage. Trying to get block time for slot ${slot - 5}`);
             return await connection.getBlockTime(slot - 5);
         }
         console.error(`Failed to retrieve block time for slot ${slot}`, e);
